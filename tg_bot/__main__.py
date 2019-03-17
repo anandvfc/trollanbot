@@ -19,35 +19,33 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-നമസ്കാരം {} മുതലാളി... 🙏, എന്റെ പേര്{} 😉! പേര് പോലെ തന്നെ നന്നായി പണി എടുക്കുന്ന കൂട്ടത്തിലാണ് ഞാൻ....
+നമസ്കാരം {} മുതലാളി... 🙏, എന്റെ പേര് {} 😉! പേര് പോലെ തന്നെ നന്നായി പണി എടുക്കുന്ന കൂട്ടത്തിലാണ് ഞാൻ....
 എനിക്ക് എന്തൊക്കെ ചെയ്യാൻ കഴിയുമെന്നറിയാൻ /help അമർത്തുക..
 ഞാൻ എങ്ങനെ ആണ് പ്രവർത്തിക്കുന്നതെന്ന് അറിയാൻ [ഇവിടെ](https://github.com/abinpaulzackariah/trollanbot) ക്ലിക്ക് ചെയ്യുക..
 കൂടുതൽ വിവരങ്ങൾക്ക് @mariebotmalayalamsupport ൽ വന്നാൽ മതിയാകും...
 """
 
 HELP_STRINGS = """
-Hey there! My name is *{}*.
-I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of \
-the things I can help you with.
-
-*Main* commands available:
- - /start: start the bot
- - /help: PM's you this message.
- - /help <module name>: PM's you info about that module.
- - /donate: information about how to donate!
+വരണം മൊയലാളി! എന്റെ പേര് *{}*.
+ഞാൻ pythonൽ നിർമിച്ച ഒരു ഗ്രൂപ്പ് മാനേജ്മെന്റ് ബോട്ടാണ്... 
+എനിക്ക് എന്തൊക്കെ ചെയ്യാൻ സാധിക്കുമെന്നും അത് ഉപയോഗിക്കേണ്ടത് എങ്ങനെ എന്നും താഴെ കൊടുത്തിരിക്കുന്നു..!!
+*Main* ആയിട്ടുള്ള commandകൾ
+ - /start: ഞാൻ ജീവനോടെ ഉണ്ടോന്ന് അറിയാൻ... 😋
+ - /help: ഈ മെസ്സേജ് നിങ്ങളുടെ PM ൽ ലഭിക്കാൻ....
+ - /help <module name>: ഒരു moduleനെക്കുറിച്ചുള്ള വിവരം നിങ്ങളുടെ PM ൽ ലഭിക്കാൻ...
+ - /donate: ബക്കറ്റ് പിരിവിനെക്കുറിച്ചുള്ള വിവരങ്ങൾ!
  - /settings:
-   - in PM: will send you your settings for all supported modules.
-   - in a group: will redirect you to pm, with all that chat's settings.
+   - in PM: support ചെയ്യുന്ന modulesനെക്കുറിച്ച് അറിയാൻ....
+   - in a group: ഒരു ഗ്രോപ്പിനെക്കുറിച്ചുള്ള വിവരങ്ങൾ അറിയാൻ....
 
 {}
 And the following:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
-It took lots of work for my creator to get me to where I am now, and every donation helps \
-motivate him to make me even better. All the donation money will go to a better VPS to host me, and/or beer \
-(see his bio!). He's just a poor student, so every little helps!
-There are two ways of paying him; [PayPal](paypal.me/PaulSonOfLars), or [Monzo](monzo.me/paulnionvestergaardlarsen)."""
+DONATE_STRING = """ഹായ് മൊയലാളി, നിങ്ങൾ സംഭാവന ചെയ്യാൻ വന്നു എന്നറിഞ്ഞതിൽ നല്ല സന്തോഷം ഉണ്ട്..!
+എന്നെ ഈ നിലയിൽ എത്തിക്കാൻ എന്റെ creator വളരെ കഷ്ടപ്പെട്ടിട്ടുണ്ട്..., ഏത് ചെറിയ സംഖ്യയും അദ്ദേഹത്തിന്\
+അദ്ദേഹത്തിന് വലിയ ഒരു സഹായം ആയിരിക്കും
+സംഭാവന കൊടുക്കാൻ 2 വഴികളാണ് ഉള്ളത്; [PayPal](paypal.me/PaulSonOfLars), or [Monzo](monzo.me/paulnionvestergaardlarsen)."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -144,7 +142,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN)
     else:
-        update.effective_message.reply_text("Yo, whadup?")
+        update.effective_message.reply_text("ഹായ്, എന്തെല്ലാ? 😉")
 
 
 # for test purposes
